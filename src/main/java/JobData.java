@@ -71,11 +71,14 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+        //convert to lowercase for case-insensitive
+        String lowercaseValue = value.toLowerCase();
+
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase(); //convert column to lowercase
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(lowercaseValue)) {
                 jobs.add(row);
             }
         }
